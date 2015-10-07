@@ -1,30 +1,30 @@
-<p title="Also creates heroic turtles.">Allows mutation, increasing the power of each member of your swarm.</p>
+<p title="Also creates sealing clubs.">Allows reality weaving, increasing the power of every aspect of you.</p>
 
-<p>To activate mutagen, your swarm must <b>ascend</b> - restart on a new world. Space travel is too harsh for most of your swarm, but mutagen strengthens a few of your swarm's larvae for the trip to their new planet. All the descendents of these larvae - your new swarm - will benefit from mutagen's power.</p>
+<p>To activate reality fabric, you must <b>ascend</b> - restart on a new reality. Universe hopping will reset your power to the level at the beginning, but reality fabric strengthens your magic for the trip to your new reality. All the destruction you cause on the new reality will benefit from reality fabric's power.</p>
 
-<p>Ascending will activate {{game.unit('premutagen').count()|longnum}} new mutagen. Your swarm's ancestors have infested {{game.unit('ascension').count()|longnum}} worlds so far.</p>
-<p>Ascending now will cost {{game.ascendCost()|longnum}} energy. Spend energy elsewhere to reduce this cost; you've spent {{game.ascendEnergySpent()|longnum}} energy.</p>
+<p>Ascending will activate {{game.unit('premutagen').count()|longnum}} new reality fabrics. You have hopped into {{game.unit('ascension').count()|longnum}} realities so far.</p>
+<p>Ascending now will cost {{game.ascendCost()|longnum}} milk. Spend milk elsewhere to reduce this cost; you've spent {{game.ascendEnergySpent()|longnum}} milk.</p>
 <div class="progress" style="margin-bottom:0">
   <div ng-if="game.ascendCostCapDiff().greaterThan(0)" class="progress-bar progress-bar-danger pull-right" role="progressbar" aria-valuenow="{{game.ascendCostCapDiff()}}" aria-valuemin="0" aria-valuemax="{{game.ascendCost()}}" ng-style="{width:game.ascendCostCapDiff().dividedBy(game.ascendCost()).times(100)+'%'}">
-    {{game.ascendCostCapDiff()|longnum}} more than your max energy!
+    {{game.ascendCostCapDiff()|longnum}} more than your max milk!
   </div>
   <div class="progress-bar" role="progressbar" aria-valuenow="{{game.unit('energy').count()}}" aria-valuemin="0" aria-valuemax="{{game.ascendCost()}}" ng-style="{width:game.ascendCostPercent().times(100)+'%'}">
-    {{game.unit('energy').count()|longnum}} energy, {{game.ascendCostPercent()|percent:0}}<span ng-if="game.ascendCostCapDiff().lessThanOrEqualTo(0) && game.ascendCostPercent().lessThan(1)">: {{game.ascendCostDurationMoment()|duration}}</span>
+    {{game.unit('energy').count()|longnum}} milk, {{game.ascendCostPercent()|percent:0}}<span ng-if="game.ascendCostCapDiff().lessThanOrEqualTo(0) && game.ascendCostPercent().lessThan(1)">: {{game.ascendCostDurationMoment()|duration}}</span>
   </div>
 </div>
-<p><button title="" ng-click="commands.ascend({game:game})" class="btn btn-primary" ng-class="{disabled:game.ascendCost().greaterThan(game.unit('energy').count())}">Ascend - activate mutagen and restart</button></p>
+<p><button title="" ng-click="commands.ascend({game:game})" class="btn btn-primary" ng-class="{disabled:game.ascendCost().greaterThan(game.unit('energy').count())}">Ascend - activate reality fabric and restart</button></p>
 <p><button title="" ng-click="game.session.state.watched={}" class="btn btn-default">Reset upgrade notifiers <span class="small disabled glyphicon glyphicon-circle-arrow-up"></span></button></p>
 
 <div>
 <p>
-Respeccing refunds all {{game.respecSpent().times(game.respecRate()) | longnum}} mutagen you've spent,
-but resets all mutagen units and upgrades to 0, and resets your next ascension's energy cost to {{game.ascendCost({spent:0}) | longnum}}.
+Regodding refunds all {{game.respecSpent().times(game.respecRate()) | longnum}} reality fabrics you've spent,
+but resets everything you've found and upgrades to 0, and resets your next ascension's milk cost to {{game.ascendCost({spent:0}) | longnum}}.
 </p>
 
-<p>Respeccing now will cost {{game.respecCost()|longnum}} energy ({{game.respecCostRate|percent}} of your next ascension's cost).</p>
+<p>Regodding now will cost {{game.respecCost()|longnum}} milk ({{game.respecCostRate|percent}} of your next ascension's cost).</p>
 
-<p><button title="" ng-click="commands.respec({game:game})" ng-class="{disabled:game.respecSpent().isZero() || !game.isRespecCostMet()}" class="btn btn-default">Respec - refund mutagen, but reset ascension cost</button></p>
+<p><button title="" ng-click="commands.respec({game:game})" ng-class="{disabled:game.respecSpent().isZero() || !game.isRespecCostMet()}" class="btn btn-default">Regod - refunds reality fabrics, and resets ascension cost</button></p>
 
-<p>One free respec is available every three ascensions. You have {{game.unit('freeRespec').count()|longnum}} free respecs remaining.</p>
-<p><button title="" ng-click="commands.respecFree({game:game})" ng-class="{disabled:game.respecSpent().isZero() || game.unit('freeRespec').count().lessThanOrEqualTo(0)}" class="btn btn-default">Respec (free)</button></p>
+<p>One free regod is available every three ascensions. You have {{game.unit('freeRespec').count()|longnum}} free regods remaining.</p>
+<p><button title="" ng-click="commands.respecFree({game:game})" ng-class="{disabled:game.respecSpent().isZero() || game.unit('freeRespec').count().lessThanOrEqualTo(0)}" class="btn btn-default">Regod (free)</button></p>
 </div>

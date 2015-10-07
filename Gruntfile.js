@@ -193,7 +193,7 @@ module.exports = function (grunt) {
     ngconstant: ngconstant,
 
     preloadSpreadsheet: {
-      'v0.2': 'https://docs.google.com/spreadsheets/d/1ughCy983eK-SPIcDYPsjOitVZzY10WdI2MGGrmxzxF4/pubhtml',
+      'v0.2': 'https://docs.google.com/spreadsheets/d/1Z4BJ4aBJqT_VuqMba90rl0BKBxSP4-sTq1iEgyqFKqk/pubhtml',
     },
     mxmlc: {
       options: {
@@ -823,7 +823,10 @@ module.exports = function (grunt) {
   grunt.registerTask('ss', 'Preload spreadsheet data and save to .tmp', function () {
     grunt.task.run(['preloadSpreadsheet']);
   });
-
+  grunt.registerTask('compile', 'compile to \dist', function () {
+    grunt.task.run(['build', 'connect:dist:keepalive']);
+  });
+  
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -873,7 +876,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', function(envname) {
     envname = envname || 'prod';
-    if (envname != 'prod' && envname != 'preprod') {
+    if (envname !== 'prod' && envname !== 'preprod') {
       throw new Error('invalid build envname: '+envname);
     }
     console.log('building envname '+envname);

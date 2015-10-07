@@ -1,9 +1,9 @@
 {
-  "name": "swarm",
-  "version": "1.0.59",
-  "description": "Swarm Simulator - an incremental/idle game. Starting with only a few larvae and a small pile of meat, build a merciless swarm of giant alien bugs.",
+  "name": "renko",
+  "version": "1.0.1",
+  "description": "Renko Simulator - an incremental/idle game. Starting with just a small Renko and a small pile of debris, grow her into the Destroyer of Worlds.",
   "repository": {
-    "url": "http://github.com/erosson/swarm.git",
+    "url": "http://github.com/Voileexperiments/renko-simulator.git",
     "type": "git"
   },
   "devDependencies": {

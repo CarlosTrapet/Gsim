@@ -30,7 +30,7 @@
     "moment-duration-format": "~1.3.0",
     "bootswatch": "~3.3.2",
     "jquery-cookie": "~1.4.1",
-    "javascript-flash-cookies": "~2.1.0",
+    "flash-cookies": "~2.1.0",
     "appcache-nanny": "~1.0.0",
     "ravenjs": "~1.1.17",
     "angular-google-chart": "~0.0.11",

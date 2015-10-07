@@ -29,8 +29,8 @@ angular.module('swarmApp').controller 'MainCtrl', ($scope, $log, game, $routePar
     not $scope.cur.unit.isVisible()
     )
 
-    $log.debug 'invalid unit', $routeParams.unit, $scope.cur.unit, (not $scope.cur.unit?), $scope.cur.unit?.unittype?.slug != $routeParams.unit, not $scope.cur.tab.indexByUnitName[$scope.cur.unit?.name]?, not $scope.cur.unit?.isVisible?()
-    $location.url $scope.cur.tab.url false
+      $log.debug 'invalid unit', $routeParams.unit, $scope.cur.unit, (not $scope.cur.unit?),$scope.cur.unit?.unittype?.slug != $routeParams.unit, not $scope.cur.tab.indexByUnitName[$scope.cur.unit?.name]?, not $scope.cur.unit?.isVisible?()
+    #$location.url $scope.cur.tab.url false
   $log.debug 'tab', $scope.cur
 
   $scope.click = (unit) ->

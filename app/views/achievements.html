@@ -19,7 +19,7 @@
   <label><input type="checkbox" checked ng-model="form.show.reverse" ng-change="onChangeVisibility()">{{form.show.reverse ? "highest" : "lowest"}} first</label>
 </p>
 
-<p ng-if="game.upgrade('achievementbonus').count().greaterThan(0)">Your achievements grant a <b>+{{game.upgrade('achievementbonus').calcStats().prod|percent:{plusOne:true} }}</b> bonus to larva production.</p>
+<p ng-if="game.upgrade('achievementbonus').count().greaterThan(0)">Your achievements grant a <b>+{{game.upgrade('achievementbonus').calcStats().prod|percent:{plusOne:true} }}</b> bonus to magic production.</p>
 
 <ul class="list-unstyled">
   <li ng-repeat="achievement in game.achievementsSorted() | filter:isVisible:achievement | orderBy:order.pred:form.show.reverse" class="achieve">

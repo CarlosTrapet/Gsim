@@ -1,10 +1,10 @@
 <p>
-Each hatchery produces {{upgrade.type.effect[0].val.times(options.velocityUnit().mult) | longnum}} more larvae per {{options.velocityUnit().label}}.
-Currently, your hatcheries produce a total of {{upgrade.unit.totalProduction().larva.times(options.velocityUnit().mult) | longnum:0}} larvae per {{options.velocityUnit().label}}.
-With no multipliers, they would produce {{upgrade.unit.prod[0].val.plus(upgrade.effect[0].calcStats().base).times(options.velocityUnit().mult) | longnum:0}} larvae per {{options.velocityUnit().label}}.</p>
-<p ng-if="upgrade.count().greaterThanOrEqualTo(upgrade.unit.stat('random.minlevel.hatchery'))" title="Savescumming won't work, by the way.">
-Your next hatchery has a {{upgrade.unit.stat('random.freq')|percent:0}} chance to award {{upgrade.effect[1].outputNext().qty|longnum}} mutagen.
+Each level of base power produces {{upgrade.type.effect[0].val.times(options.velocityUnit().mult) | longnum}} more magic per {{options.velocityUnit().label}}.
+Currently, your base power generates a total of {{upgrade.unit.totalProduction().larva.times(options.velocityUnit().mult) | longnum:0}} magic per {{options.velocityUnit().label}}.
+With no growths, it would generate {{upgrade.unit.prod[0].val.plus(upgrade.effect[0].calcStats().base).times(options.velocityUnit().mult) | longnum:0}} magic per {{options.velocityUnit().label}}.</p>
+<p ng-if="upgrade.count().greaterThanOrEqualTo(upgrade.unit.stat('random.minlevel.hatchery'))">
+Your next base power enhancement has a {{upgrade.unit.stat('random.freq')|percent:0}} chance to award {{upgrade.effect[1].outputNext().qty|longnum}} reality fabrics.
 </p>
 <p ng-if="!upgrade.count().greaterThanOrEqualTo(upgrade.unit.stat('random.minlevel.hatchery')) && game.unit('mutagen').isVisible()">
-Build {{upgrade.unit.stat('random.minlevel.hatchery')|longnum}} hatcheries to begin earning mutagen.
+Enhance your base power {{upgrade.unit.stat('random.minlevel.hatchery')|longnum}} more times to begin earning reality fabrics.
 </p>

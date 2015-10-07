@@ -73,7 +73,7 @@ angular.module('swarmApp').factory 'Options', ($log, util, env, game, $location)
     if (not ret?) or (ret.name == 'warp' and (
       ((opts.unit?.name ? opts.unit) == 'energy') or
       ((opts.prod?.name ? opts.prod) == 'nexus')))
-      ret = @VELOCITY_UNITS.list[0]
+        ret = @VELOCITY_UNITS.list[0]
     return ret._get()
   getVelocityUnit: (opts={}) ->
     return @velocityUnit undefined, opts

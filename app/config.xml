@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-  <!-- phonegap config. -->
-  <widget xmlns   = "http://www.w3.org/ns/widgets"
-      xmlns:gap   = "http://phonegap.com/ns/1.0"
-      xmlns:android   = "http://schemas.android.com/apk/res/android"
-      id          = "org.erosson.swarmsim"
-      versionCode = "1" 
-      version     = "0.0.1" >
 
   <name>Swarm Simulator</name>
 
   <description>
-    An incremental game. Starting with just a few larvae and a small pile of meat, grow a massive swarm of giant bugs.
+    An incremental game. Starting with just a small Renko and a small pile of debris, turn her into the Destroyer of Worlds.
   </description>
 
-  <author href="http://github.com/erosson/swarm" email="swarmsim@erosson.org">
-    Evan Rosson
+  <author href="https://github.com/Voileexperiments/renko-simulator" email="">
+    Permayuyuko (P)
   </author>
 
   <!-- open reddit in the device's real browser. http://stackoverflow.com/questions/14070841/phonegap-open-link-in-browser -->

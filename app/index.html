@@ -1,17 +1,11 @@
 <!doctype html>
 <html class="no-js">
-<!--
-
-Hi there! The non-minified source code is a lot easier to read:
-https://github.com/erosson/swarm
-
--->
   <head>
     <meta charset="utf-8">
-    <title>Swarm Simulator</title>
+    <title>Renko Simulator</title>
     <link rel="shortcut icon" type="image/png" href="favicon.ico">
-    <meta name="description" content="An incremental game. Starting with just a few larvae and a small pile of meat, grow a massive swarm of giant bugs.">
-    <link rel="canonical" href="https://swarmsim.github.io">
+    <meta name="description" content="An incremental game. Starting with just a small Renko and a small pile of debris, turn her into the Destroyer of Worlds.">
+    <link rel="canonical" href="https://voileexperiments.github.io/renkosimulator">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -26,31 +20,6 @@ https://github.com/erosson/swarm
     <!-- build:css(.tmp) styles/bootstrapdefault.css -->
     <link rel="stylesheet" href="styles/bootstrapdefault.css" />
     <!-- endbuild -->
-    <!-- For non-Retina (@1× display) iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png"><!-- 57×57px -->
-    <!-- For the iPad mini and the first- and second-generation iPad (@1× display) on iOS ≤ 6: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
-    <!-- For the iPad mini and the first- and second-generation iPad (@1× display) on iOS ≥ 7: -->
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76-precomposed.png">
-    <!-- For iPhone with @2× display running iOS ≤ 6: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-    <!-- For iPhone with @2× display running iOS ≥ 7: -->
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120-precomposed.png">
-    <!-- For iPad with @2× display running iOS ≤ 6: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
-    <!-- For iPad with @2× display running iOS ≥ 7: -->
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152-precomposed.png">
-    <!-- For iPhone 6 Plus with @3× display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-icon-180x180-precomposed.png">
-    <!-- For Chrome for Android: -->
-    <link rel="icon" sizes="192x192" href="touch-icon-192x192.png">
-    <!-- Nice stuff for Metro -->
-    <meta name="application-name" content="Swarm Simulator"/>
-    <!-- Set a nice background colour for your tile -->
-    <meta name="msapplication-TileColor" content="#800080"/>
-    <meta name="msapplication-square70x70logo" content="metro_tile-70x70.png"/>
-    <meta name="msapplication-square150x150logo" content="metro_tile-150x150.png"/>
-    <meta name="msapplication-square310x310logo" content="metro_tile-310x310.png"/>
   </head>
   <body ng-app="swarmApp">
     <!--[if lt IE 9]>
@@ -68,7 +37,7 @@ https://github.com/erosson/swarm
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button-->
-            <a class="navbar-brand page-title" href="#"><span>Swarm Simulator<span></a>
+            <a class="navbar-brand page-title" href="#/"><span>Renko Simulator<span></a>
             <a ng-cloak ng-if="env.isDebugEnabled" class="envalert navbar-brand" ng-href="#/debug"> ({{env.name}})</a>
             <a class="navbar-brand" ng-href="#/changelog"><span class="text-muted small" ng-cloak>v{{version}}</span></a>
           </div>
@@ -97,7 +66,7 @@ https://github.com/erosson/swarm
           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <p>Oh no! There was a problem loading your saved game.</p>
           <p><b>Please make sure <code>{{form.domain}}</code> has permission to set cookies/localstorage in your browser.</b></p>
-          <p ng-if="isKongregate()">This problem usually happens when your browser is <a href="https://www.google.com/search?q=how%20to%20enable%20third-party%20cookies" target="_blank">blocking third-party cookies</a>. Swarm Simulator needs this storage to save your game. It's not doing anything evil, I promise.</p>
+          <p ng-if="isKongregate()">This problem usually happens when your browser is <a href="https://www.google.com/search?q=how%20to%20enable%20third-party%20cookies" target="_blank">blocking third-party cookies</a>. Renko Simulator needs this storage to save your game. It's not doing anything evil, I promise.</p>
           <p>The error message was: <code>{{form.error}}</code></p>
           <p>If you think this is a bug, you can <a ng-href="{{contactUrl()}}">report it</a>. Thanks!</p>
         </div>
@@ -114,7 +83,7 @@ https://github.com/erosson/swarm
       <div ng-cloak ng-controller="WelcomeBackCtrl">
         <div id="welcomeback" class="alert alert-info alert-dismissible animif" role="alert" ng-if="showWelcomeBack">
           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <p title="Please don't go. The drones need you. They look up to you.">Welcome back! While you were away for {{durationSinceClosed.humanize()}}, your swarm produced:</p>
+          <p title="Please don't go. Renko needs you. Renko looks up to you.">Welcome back! While you were away for {{durationSinceClosed.humanize()}}, Renko produced:</p>
           <!--span ng-repeat="gain in offlineGains">
             <span ng-if="!$first && $last"> and </span>
               {{gain.val | longnum}}
@@ -125,30 +94,12 @@ https://github.com/erosson/swarm
               <a ng-href="#{{gain.unit.url()}}" ng-click="closeWelcomeBack()">{{gain.unit.unittype.plural}}</a>
             </li>
           </ul>
-          <newslink ng-cloak></newslink>
+          <!--newslink ng-cloak></newslink-->
         </div>
       </div>
       <div ng-cloak ng-controller="AprilFoolsCtrl">
         <div id="aprilfools-news" class="alert alert-info alert-dismissable animif" role="alert" ng-if="options.aprilFoolsState() != 'off'">
           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <div ng-if="options.aprilFoolsState() === 'on'">
-            <span title="Really. Honest. Would I lie to you?" class="small pull-right">2016/04/01</span>
-            <div ng-if="!options.isAprilFoolsTheme()">
-              <p><strong title="Really. Honest. Would I lie to you?">Exciting changes are coming to Swarm Simulator soon!</strong></p>
-              <p>Insects are too icky, so we're changing our name. Also, we'll require graphics to play.</p>
-              <p><a href="javascript:" ng-click="options.isAprilFoolsTheme(true)">Try out the upcoming changes now!</a></p>
-            </div>
-            <div ng-if="options.isAprilFoolsTheme()">
-              <p><strong title="Really. Honest. Would I lie to you?">Swarm Simulator is now Kitten Klicker!</strong></p>
-              <p>Insects were too icky, so we've changed our name. Also, we now require graphics to play. Thanks to <a target="_blank" href="http://placekitten.com/attribution.html">Placekitten</a> for providing graphics. Enjoy the new game!</p>
-              <p><a href="javascript:" ng-click="options.isAprilFoolsTheme(false)">Click here if you hate kittens, you monster.</a></p>
-            </div>
-          </div>
-          <div ng-if="options.aprilFoolsState() === 'after'">
-            <span class="small pull-right">2015/04/02</span>
-            <p>I hope you enjoyed yesterday's April Fools joke!</p>
-            <p><a href="#/cleartheme?themeExtra=@import%20url%28'/static/kittens.css'%29;">Click here to keep the kitten pictures.</a> To remove them later, go to the options screen and click "Clear all extra styling/graphics".</p>
-          </div>
         </div>
       </div>
 
@@ -249,7 +200,7 @@ https://github.com/erosson/swarm
     <script src="bower_components/dropbox-datastores-1.0-latest/index.js"></script>
     <script src="bower_components/moment-duration-format/lib/moment-duration-format.js"></script>
     <script src="bower_components/jquery-cookie/jquery.cookie.js"></script>
-    <script src="bower_components/javascript-flash-cookies/dist/swfstore.min.js"></script>
+    <script src="bower_components/flash-cookies/dist/swfstore.min.js"></script>
     <script src="bower_components/appcache-nanny/appcache-nanny.js"></script>
     <script src="bower_components/ravenjs/dist/raven.js"></script>
     <script src="bower_components/angular-google-chart/ng-google-chart.js"></script>
